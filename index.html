@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crypto Portfolio Value</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .container {
+            background-color: white;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 400px;
+            text-align: center;
+        }
+        h1 {
+            font-size: 28px;
+            margin-bottom: 20px;
+            color: #2c3e50;
+        }
+        input[type="text"] {
+            font-size: 18px;
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        button {
+            font-size: 18px;
+            padding: 12px 30px;
+            background-color: #3498db;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        button:hover {
+            background-color: #2980b9;
+        }
+        .result {
+            margin-top: 20px;
+            font-size: 20px;
+            color: #27ae60;
+            display: none; /* Initially hidden */
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Crypto Portfolio Calculator</h1>
+        <form method="POST" onsubmit="showResult()">
+            <!-- Ask the user for the amount of Bitcoin they own -->
+            <input type="text" id="fname" name="btcValue" placeholder="Enter Bitcoin Amount" required>
+
+            <!-- Ask the user for the amount of Ethereum they own -->
+            <input type="text" id="zname" name="ethValue" placeholder="Enter Ethereum Amount" required>
+
+            <button type="submit">Calculate Portfolio Value</button>
+        </form>
+
+        <div class="result" id="resultSection">
+            <!-- Display the total portfolio value after form submission -->
+            {% if btc_total or eth_total %}
+                <p>Total Bitcoin Value: ${{ btc_total }}</p>
+                <p>Total Ethereum Value: ${{ eth_total }}</p>
+            {% endif %}
+        </div>
+    </div>
+
+    <script>
+        // Function to show the result section after form submission
+        function showResult() {
+            document.getElementById('resultSection').style.display = 'block';
+        }
+    </script>
+
+</body>
+</html>
